@@ -233,6 +233,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
+static void shiftview(const Arg *arg);
 
 /* variables */
 static const char broken[] = "broken";
@@ -2123,7 +2124,37 @@ zoom(const Arg *arg)
 			return;
 	pop(c);
 }
+void 
+shiftview(const Arg *arg)
+{
+	Arg a;
+	Client *c;
+	unsigned visible = 0;
+	int i = arg->i;
+	int count = 0;
+	int nextseltags, curseltags = selmon->tagset[selmon->seltags];
 
+	do {
+		if(i > 0) // left circular shift
+			nextseltags = (curseltags << i) | (curseltags >> (LENGTH(tags) - i));
+
+		else // right circular shift
+			nextseltags = curseltags >> (- i) | (curseltags << (LENGTH(tags) + i));
+
+                // Check if tag is visible
+		for (c = selmon->clients; c && !visible; c = c->next)
+			if (nextseltags & c->tags) {
+				visible = 1;
+				break;
+			}
+		i += arg->i;
+	} while (!visible && ++count < 10);
+
+	if (count < 10) {
+		a.i = nextseltags;
+		view(&a);
+	}
+}
 int
 main(int argc, char *argv[])
 {
