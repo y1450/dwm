@@ -10,7 +10,10 @@ static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows sel
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
-static const char *fonts[]          = { "Input:size=10" };
+//static char *fonts[]          = { "monospace:size=14:antialias=true","fontawesome:size=15"};
+
+static const char *fonts[] = { "Roboto Mono Nerd Font Mono:style=Regular:size=16" };
+
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -26,19 +29,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "","","", "",":File", "", "","", ""};
-
-
-
-
-
-
-
-
-
-
-
-
+static const char *tags[] = { "", "", "", "4", "5", "6", "7", "", "" };
+static const char *prtscrcmd[] = { "flameshot", "gui", NULL};
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class WM_NAME(STRING) = title
@@ -102,6 +94,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_y,      spawn,     {.v = prtscrcmd }},
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
