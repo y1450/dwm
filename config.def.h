@@ -12,7 +12,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 //static char *fonts[]          = { "monospace:size=14:antialias=true","fontawesome:size=15"};
 
-static const char *fonts[] = { "Roboto Mono Nerd Font Mono:style=Regular:size=16" };
+static const char *fonts[] = { "monospace:size=12","Roboto Mono Nerd Font Mono:style=Regular:size=20" };
 
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
