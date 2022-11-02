@@ -76,14 +76,16 @@ static const char *scratchpadcmd[] = {"tdrop","-ma", "-w", "80%", "-h", "80%", "
 static const char *agendacommand[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%", "-f", "'c'", "emacs",NULL};
 static const char *mpvcommand[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%","-n","mpv", "-f", "'-t floating'", "alacritty",NULL};
 static const char *passcommand[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%","-n","mpv", "-f", "'-t floating'", "alacritty",NULL};
+static const char *logseq_command[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%","-n","logseq", "-f", "'-t floating'", "alacritty",NULL};
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = capturecmd } },
 	{ MODKEY,                       XK_grave,  spawn,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_o,      spawn,  				 {.v = agendacommand } },
-	//{ MODKEY,                       XK_p,      spawn,  				 {.v = mpvcommand } },
-	{ MODKEY,                       XK_p,      spawn,  				 CMD("passmenu") },
+	{ MODKEY,                       XK_p,      spawn,  				 {.v = logseq_command } },
+	//{ MODKEY,                       XK_p,      spawn,  				 CMD("passmenu") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
