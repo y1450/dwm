@@ -38,6 +38,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Logseq",       NULL,  NULL,       0,       1,           -1},
 	{ "Emacs",       NULL,    NULL,       0,       1,           -1},
 	{ "Alacritty",       NULL,  "floating",       0,       1,           -1},
 
@@ -76,7 +77,7 @@ static const char *scratchpadcmd[] = {"tdrop","-ma", "-w", "80%", "-h", "80%", "
 static const char *agendacommand[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%", "-f", "'c'", "emacs",NULL};
 static const char *mpvcommand[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%","-n","mpv", "-f", "'-t floating'", "alacritty",NULL};
 static const char *passcommand[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%","-n","mpv", "-f", "'-t floating'", "alacritty",NULL};
-static const char *logseq_command[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%","-n","logseq", "-f", "'-t floating'", "alacritty",NULL};
+static const char *logseq_command[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%","-n","logseq","-f", "'-t floating'", "logseq",NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
