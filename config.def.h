@@ -84,6 +84,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_grave,  spawn,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_p,      spawn,  				 {.v = logseq_command } },
 	{ MODKEY,                       XK_w,      spawn,  				 CMD("passmenu") },
+	{ MODKEY,                       XK_o,      spawn,  				 CMD("clipmenu") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
