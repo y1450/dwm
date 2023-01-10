@@ -29,19 +29,19 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "4", "5", "6", "7", "", "" };
+static const char *tags[] = { "", "", "3", "4", "5", "6", "7", "8", "" };
 static const char *prtscrcmd[] = { "flameshot", "gui", NULL};
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class WM_NAME(STRING) = title
+   *  1<<n , would place the window on n+1
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "Logseq",       NULL,  NULL,       0,       1,           -1},
-	{ "Emacs",       NULL,    NULL,       0,       1,           -1},
+	{ "Navigator",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Anki",  NULL,       NULL,       1 << 7,       0,           -1 },
+	{ "Emacs",       NULL,    NULL,       1<<8,       0,           -1},
 	{ "Alacritty",       NULL,  "floating",       0,       1,           -1},
-
+	{ "Alacritty",       NULL,  "Alacritty",       1<<1,       0,           -1},
 };
 
 /* layout(s) */
@@ -77,12 +77,15 @@ static const char *scratchpadcmd[] = {"tdrop","-ma", "-w", "80%", "-h", "80%", "
 static const char *agendacommand[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%", "-f", "'c'", "emacs",NULL};
 static const char *mpvcommand[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%","-n","mpv", "-f", "'-t floating'", "alacritty",NULL};
 static const char *logseq_command[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%","-n","logseq","-f", "'-t floating'", "logseq",NULL};
+static const char *zealdoc[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", "25%", "-y", "25%","-n","zeal","-f", "'-t floating'", "zeal",NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_grave,  spawn,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_p,      spawn,  				 {.v = logseq_command } },
+	{ MODKEY,                       XK_r,      spawn,  				 {.v = zealdoc } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = capturecmd } },
 	{ MODKEY,                       XK_w,      spawn,  				 CMD("passmenu") },
 	{ MODKEY,                       XK_o,      spawn,  				 CMD("clipmenu") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
