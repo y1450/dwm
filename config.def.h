@@ -37,11 +37,11 @@ static const Rule rules[] = {
    *  1<<n , would place the window on n+1
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Navigator",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "firefox",  NULL,       NULL,       1 << 0,       0,           -1 },
 	{ "Anki",  NULL,       NULL,       1 << 7,       0,           -1 },
 	{ "Emacs",       NULL,    NULL,       1<<8,       0,           -1},
-	{ "Alacritty",       NULL,  "floating",       0,       1,           -1},
-	{ "Alacritty",       NULL,  "Alacritty",       1<<1,       0,           -1},
+	{ "scratchpad",      NULL,  NULL,       ~0,       1,           -1},
+	{ "tmux-workspace",       NULL,  NULL,       1<<1,       0,           -1},
 };
 
 /* layout(s) */
@@ -84,7 +84,7 @@ static const char *zealdoc[]  = {"tdrop","-ma", "-w", "80%", "-h", "80%", "-x", 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_grave,  spawn,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_grave,  spawn,          CMD("tdrop -ma -w 80% -h 90% -x 25% -y 25% -n al alacritty --class scratchpad")},
 	{ MODKEY,                       XK_p,      spawn,  				 {.v = logseq_command } },
 	{ MODKEY,                       XK_r,      spawn,  				 {.v = zealdoc } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = capturecmd } },
