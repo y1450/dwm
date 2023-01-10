@@ -37,7 +37,7 @@ static const Rule rules[] = {
    *  1<<n , would place the window on n+1
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Navigator",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "firefox",  NULL,       NULL,       1 << 0,       0,           -1 },
 	{ "Anki",  NULL,       NULL,       1 << 7,       0,           -1 },
 	{ "Emacs",       NULL,    NULL,       1<<8,       0,           -1},
 	{ "Alacritty",       NULL,  "floating",       0,       1,           -1},
