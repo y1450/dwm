@@ -56,6 +56,8 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+//https://bbs.archlinux.org/viewtopic.php?id=126144
+#define TAGMASK_DEFAULT 1<<2
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
